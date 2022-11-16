@@ -39,15 +39,15 @@ In `main.py` a simple exmple showing how to use the code is implemented. A data 
 
 The format of the data file is as follows
 
-``
-    "Girls": [List of names for the girls in the class],
-    "Boys": [List of names for the boys in the class],
-    "numOfEvents": integer specifying the number of events that should be planned,
-    "minNumGuests": integer specifying the minimum number of kids in each group,
-    "maxNumGuests": integer specifying the maximum number of kids in each group,
-    "timeLimitInSeconds" : float spefifying the number of seconds which should be allocated to the solution,
-    "shuffle_kids" : boolean spcifying whether the lists of boys and girls should be shuffled before building the model
-``
+```
+"Girls": [List of names for the girls in the class],
+"Boys": [List of names for the boys in the class],
+"numOfEvents": integer specifying the number of events that should be planned,
+"minNumGuests": integer specifying the minimum number of kids in each group,
+"maxNumGuests": integer specifying the maximum number of kids in each group,
+"timeLimitInSeconds" : float spefifying the number of seconds which should be allocated to the solution,
+"shuffle_kids" : boolean spcifying whether the lists of boys and girls should be shuffled before building the model
+```
 
 ## Mathmatical model
 
@@ -96,7 +96,17 @@ This is ensured by the constraints
 
 $$
 \begin{equation}
-  \sum _{g \in K} x_i^{ge} == 1,\quad \forall i\in P, e\in E
+  \sum _{g \in K} x_i^{ge} = 1,\quad \forall i\in P, e\in E
 \end{equation}
 $$
+
+Next, we ensure that at most $u$ and at least $l$ kids are in each utilized group:
+
+$$
+\begin{align}
+  &\sum_{i \in P} x_i^{ge} \leq uz_{ge}, &&\forall g\in K, e\in E\\
+  &\sum_{i \in P} x_i^{ge} \geq uz_{ge}, &&\forall g\in K, e\in E
+\end{align}
+$$
+
 
