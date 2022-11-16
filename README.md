@@ -135,14 +135,16 @@ $(y_{ij}^e=1)$ if at least one $x_{ij}^{ge}$ equals one for the pair $(i,j)$ and
 
 $$
 \begin{align}
-  &y_{ij}^e\leq \sum_{g \in K} x_{ij}^{ge},&&\forall (i,j)\in \Pi, e\in E
+  &y_{ij}^e=\sum_{g \in K} x_{ij}^{ge},&&\forall (i,j)\in \Pi, e\in E
 \end{align}
 $$
 
-These constraints inforce the logic that if there exists a group $g$ in which kids $i$ and $j$ meet each other at event $e$, then $y_{ij}^e$ is allowed to take a value of one. Given that the objective function prefers more meetings, it is not necessary to enfore the reverse implication. However, it can be done with constraints
+The equality is given by the fact that $i$ and $j$ cannot meet each other in *more* than one group. Hence the right hand side sum is either equal to $ or 0.
+
+Next, we enforce final definition of the $ \tilde{y} _{ij}$ variables. Since $ \tilde{y} _{ij}$ should only be allowed to take the value of one if there exists an event $e$ where kids $i$ and $j$ meet, we have the relation
 
 $$
 \begin{align}
-  &\vert K\vert y_{ij}^e\geq \sum_{g \in K} x_{ij}^{ge},&&\forall (i,j)\in \Pi, e\in E
+  & \tilde{y} _{ij} \leq \sum_{e\in E} y_{ij}^e,&& \forall (i,j) \in \Pi
 \end{align}
 $$
