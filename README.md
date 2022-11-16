@@ -85,7 +85,7 @@ $$
 
 $$
 \begin{equation}
-  \max \sum_{ (i,j) \in \Pi } y _{ij}
+  \max \sum_{ (i,j) \in \Pi } \tilde{y}  _{ij}
 \end{equation}
 $$
 
