@@ -145,6 +145,6 @@ Next, we enforce final definition of the $\tilde{y} _{ij}$ variables. Since $\ti
 
 $$
 \begin{align}
-  &\tilde{y} _{ij}\leq \sum_{e \in E} 
+  &\tilde{y} _{ij}\leq \sum _{e \in E} 
 \end{align}
 $$
