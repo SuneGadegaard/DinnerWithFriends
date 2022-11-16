@@ -65,6 +65,7 @@ $$
   u =& \text{maximum number of kids in a group}\\
   l =& \text{minimum number of kids in a group}
 \\end{align}
+$$
 
 ### Variables
 
@@ -78,4 +79,11 @@ $$
   \alpha _{ij}^e&=\begin{cases}1&\text{if kid $j$ visits kid $i$'s home at event $e$}\\\ 0,&\text{otherwise} \end{cases}
 \end{align}
 $$
+
+### Objective function
+
+$$
+\begin{equation}
+  \max \sum_{ (i,j) \in \Pi } y _{ij}
+\end{equation}
 $$
