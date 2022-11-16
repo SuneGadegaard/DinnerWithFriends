@@ -77,7 +77,8 @@ $$
   {y} _{ij}^{e} &=\begin{cases}1&\text{if kids $i$ and $j$ are in the same group at event $e$}\\\ 0,&\text{otherwise} \end{cases}\\
   \tilde{y} _{ij} &=\begin{cases}1&\text{if kids $i$ and $j$ meet each other at least once}\\\ 0,&\text{otherwise} \end{cases}\\
   z _{ge} &=\begin{cases}1&\text{if group $g$ is used at event $e$}\\\ 0,&\text{otherwise} \end{cases}\\
-  \alpha _{ij}^e&=\begin{cases}1&\text{if kid $j$ visits kid $i$'s home at event $e$}\\\ 0,&\text{otherwise} \end{cases}
+  \alpha _{ij}^e&=\begin{cases}1&\text{if kid $j$ visits kid $i$'s home at event $e$}\\\ 0,&\text{otherwise} \end{cases}\\
+  \beta _{i}^e&=\begin{cases}1&\text{if kid $i$ is one of the hosts at event $e$}\\\ 0,&\text{otherwise} \end{cases}
 \end{align}
 $$
 
@@ -126,7 +127,7 @@ $$
 \begin{align}
   &x_{ij}^{ge} \leq x_i^{ge},	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
   &x_{ij}^{ge} \leq x_j^{ge},	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
-  &x_{ij}^{ge} \geq x_i^{ge}+x_j^{ge}-1,	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
+  &x_{ij}^{ge} \geq x_i^{ge}+x_j^{ge}-1,	&& \forall (i,j)\in \Pi, g\in K, e\in E
 \end{align}
 $$
 
@@ -148,3 +149,92 @@ $$
   &\tilde{y} _{ij}\leq \sum _{e \in E} y _{ij}^e , && \forall (i,j) \in \Pi
 \end{align}
 $$
+
+THe next part of the model, focuses on the practical rules for a feasible solution. First, the rule that kids $i$ and $j$ cannot meet each other at two consecutive events is modelled as 
+
+$$
+\begin{align}
+  &y_{ij}^e + y_{ij}^{e+1} \leq 1, &&\forall (i,j)\in \Pi, e\in E: e\neq \vert E\vert 
+\end{align}
+$$
+
+Next, the rule that each kid $i$ should be the host at an event at least once is modelled as
+
+$$
+\begin{align}
+  &\sum_{e\in E} \beta_i^e \geq 1, && \forall i\in P
+\end{align}
+$$
+
+As there should be as many hosts at event $e$ as there are groups in use, we require that
+$$
+\begin{align}
+  &\sum_{i \in P} \beta_i^e = \sum_{g\in K} z_{ge}, && \forall e\in E
+\end{align}
+$$
+This is however not enough to enforce the logic, as there my now be two hosts in the same group and no host in another group, which is rather meaningless. Hence, we enforce that if kids $i$ and $j$ are in the same group, they cannot both be hosts
+
+$$
+\begin{align}
+  & \beta_i^e + \beta_j^e \leq 2 - y_{ij}^e,&& \forall (i,j)\in \Pi, e\in E
+\end{align}
+$$
+
+It should also be the case, that a kid $i$ cannot be the host at two consecutive events, hence constraints 
+
+$$
+\begin{align}
+  & \beta_i^e + \beta_i^{e+1}\leq 1, && \forall i \in P, e\in E
+\end{align}
+$$
+
+must be included as well.
+
+The last part of the model concerns the definition of the $\alpha_{ij}^e$-variables. Note that $\alpha_{ij}^e=1$ if and only if pupil $j$ visits pupil $i$'s home at event $e$. This means that $\alpha_{ij}^e=1$ if and only if $i$ and $j$ meets each other at event $e$ $(y_{ij}^e=1)$ *and* $i$ is the host at that event $(\beta_i^e=1)$. Hence, $\alpha_{ij}^e= y_{ij}^e \beta_i^e$. Again the standard linearization of a product of binary variables is used to arrived at constraints
+
+$$
+\begin{align}
+  & \alpha_{ij}^e \leq \beta_i^e, &&\forall i,j \in P, e\in E,\\
+  & \alpha_{ij}^e \leq y_{ij}^e, && \forall i,j\in P, e\in E\\
+  & \alpha{ij}^e \geq y_{ij}^e + \beta_i^e - 1, && \forall i,j\in P, e\in E\\
+\end{align}
+$$
+
+Finally, it should be ensured that pupil $j$ visits pupil $i$ at least once:
+
+$$
+\begin{align}
+  & \sum_{e \in E} \alpha_{ij}^e \leq 1, &&\forall i,j\in P
+\end{align}
+$$
+
+### The full model
+
+The full linear integer programming model is then described as follows 
+
+$$
+\begin{align}
+  \max		&\ \sum_{ (i,j) \in \Pi } \tilde{y}  _{ij}\\
+  \text{s.t.:}	&\ \sum _{g \in K} x_i^{ge} = 1,&& \forall i\in P, e\in E \\
+  		&\ \sum_{i \in P} x_i^{ge} \leq uz_{ge}, &&\forall g\in K, e\in E\\
+  		&\ \sum_{i \in P} x_i^{ge} \geq uz_{ge}, &&\forall g\in K, e\in E\\
+		&\ \sum_{i \in G} x_i^{ge} \geq 2x_j^{ge},	&& \forall j\in G, e\in E, g\in K\\
+		&\ \sum_{i \in B} x_i^{ge} \geq 2x_j^{ge},	&& \forall j\in B, e\in E, g\in K\\
+		&\ x_{ij}^{ge} \leq x_i^{ge},	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
+		&\ x_{ij}^{ge} \leq x_j^{ge},	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
+		&\ x_{ij}^{ge} \geq x_i^{ge}+x_j^{ge}-1,	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
+		&\ y_{ij}^e=\sum_{g \in K} x_{ij}^{ge},&&\forall (i,j)\in \Pi, e\in E\\
+		&\ \tilde{y} _{ij}\leq \sum _{e \in E} y _{ij}^e , && \forall (i,j) \in \Pi\\
+		&\ y_{ij}^e + y_{ij}^{e+1} \leq 1, &&\forall (i,j)\in \Pi, e\in E: e\neq \vert E\vert \\
+		&\ \sum_{e\in E} \beta_i^e \geq 1, && \forall i\in P\\
+		&\ \sum_{i \in P} \beta_i^e = \sum_{g\in K} z_{ge}, && \forall e\in E\\
+		&\ \beta_i^e + \beta_j^e \leq 2 - y_{ij}^e,&& \forall (i,j)\in \Pi, e\in E\\
+		&\ \beta_i^e + \beta_i^{e+1}\leq 1, && \forall i \in P, e\in E\\
+		& \alpha_{ij}^e \leq \beta_i^e, &&\forall i,j \in P, e\in E,\\
+		&\ \alpha_{ij}^e \leq y_{ij}^e, && \forall i,j\in P, e\in E\\
+		&\ \alpha{ij}^e \geq y_{ij}^e + \beta_i^e - 1, && \forall i,j\in P, e\in E\\
+		&\ \sum_{e \in E} \alpha_{ij}^e \leq 1, &&\forall i,j\in P\\
+		&\ \text{all variables are binary}
+\end{align}
+$$
+
