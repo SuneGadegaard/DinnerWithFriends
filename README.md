@@ -224,7 +224,7 @@ $$
 		&x_{ij}^{ge} \leq x_j^{ge},	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
 		&x_{ij}^{ge} \geq x_i^{ge}+x_j^{ge}-1,	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
 		&y_{ij}^e=\sum_{g \in K} x_{ij}^{ge},&&\forall (i,j)\in \Pi, e\in E\\
-		&\tilde{y}_{ij}\leq \sum _{e \in E} y _{ij}^e , && \forall (i,j) \in \Pi\\
+		&\tilde{y}_{ij}\\
 		&y_{ij}^e + y_{ij}^{e+1} \leq 1, &&\forall (i,j)\in \Pi, e\in E: e\neq \vert E\vert \\
 		&\sum_{e\in E} \beta_i^e \geq 1, && \forall i\in P\\
 		&\sum_{i \in P} \beta_i^e = \sum_{g\in K} z_{ge}, && \forall e\in E\\
