@@ -141,7 +141,7 @@ $$
 
 The equality is given by the fact that $i$ and $j$ cannot meet each other in *more* than one group. Hence the right hand side sum is either equal to $ or 0.
 
-Next, we enforce final definition of the $ \tilde{y} _{ij}$ variables. Since $ \tilde{y} _{ij}$ should only be allowed to take the value of one if there exists an event $e$ where kids $i$ and $j$ meet, we have the relation
+Next, we enforce final definition of the $\tilde{y} _{ij}$ variables. Since $\tilde{y} _{ij}$ should only be allowed to take the value of one if there exists an event $e$ where kids $i$ and $j$ meet, we have the relation
 
 $$
 \begin{align}
