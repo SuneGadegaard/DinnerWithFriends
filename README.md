@@ -1,4 +1,4 @@
-#Dinner with friends 
+# Dinner with friends 
 
 In Denmark a rather substantial amount of work and effort has gone into reducing bullying in the danish public schools (``Folkeskolen''). Many initiatives, which purposes are to strengthen the unity and solidarity in the individual classes, have been introduced - and this with remarkable results (see e.g. [this link at sdu.dk](https://www.sdu.dk/da/sif/ugens_tal/17_2019). 
 	
