@@ -49,7 +49,7 @@ The format of the data file is as follows
 "shuffle_kids" : boolean spcifying whether the lists of boys and girls should be shuffled before building the model
 ```
 
-## Mathmatical model
+## Mathematical model
 
 Here, a mathematical description of the model is given. First we define sets and parameters, next the variables, the objective funciton, and finally we provide the consrtaints. This section is concluded with a full description of the model.
 
@@ -91,7 +91,7 @@ $$
 
 ### Constraints
 
-Here all constraints are formulated and described. First of all, the model should ensure that each kids $i\in P$ is in exactly one groupe at each event.
+Here all constraints are formulated and described. First of all, the model should ensure that each kids $i\in P$ is in exactly one group at each event.
 This is ensured by the constraints
 
 $$
@@ -109,4 +109,23 @@ $$
 \end{align}
 $$
 
+The next rule to enforce is the "if one girl/boy in a group, then at least two gilrs/boys in the group". This can be done using the following linear constraints
 
+$$
+\begin{align}
+  &\sum_{i \in G} x_i^{ge} \geq 2x_j^{ge},	&& \forall j\in G, e\in E, g\in K\\
+  &\sum_{i \in B} x_i^{ge} \geq 2x_j^{ge},	&& \forall j\in B, e\in E, g\in K
+\end{align}
+$$
+
+Now we formulate the logic linking the $x_i^{ge}$ and $x_{ij}^{ge}$ variables. Note, that $x_{ij}^{ge}=x_i^{ge}x_j^{ge}$ stating the $x_{ij}^{ge}$ equals 
+one, only if both $x_i^{ge}$ and $x_j^{ge}$ equals one. To formulate this as linear relations, the standard linearization of a product of binary variables
+is used
+
+$$
+\begin{align}
+  &x_{ij}^{ge} \leq x_i^{ge},	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
+  &x_{ij}^{ge} \leq x_j^{ge},	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
+  &x_{ij}^{ge} \geq x_i^{ge}+x_i^{ge}-1,	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
+\end{align}
+$$
