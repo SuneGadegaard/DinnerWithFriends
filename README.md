@@ -70,7 +70,8 @@ $$
 
 $$
 \\begin{align}
-  x_i^{ge} =\begin{cases}1&\text{if kid $i\in P$ is in group $g$ at event $e$}\\0,&\text{otherwise} \end{cases}
+  x_i^{ge} &=\begin{cases}1&\text{if kid $i$ is in group $g$ at event $e$}\\ 0,&\text{otherwise} \end{cases}\\
+  \tilde{x}_{ij}^{ge} &=\begin{cases}1&\text{if kids $i$ and $j$ are in group $g$ at event $e$}\\ 0,&\text{otherwise} \end{cases}
 \end{align}
 $$
 $$
