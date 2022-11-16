@@ -60,6 +60,6 @@ $$
   G&\text{List of names for the girls in the class}\\
   B&\text{List of names for the boys in the class}\\
   P& G\cup B\\
-  E& \text{{} \\
+  E& \text{{} 
 \\end{align}
 $$
