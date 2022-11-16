@@ -35,7 +35,7 @@ What you can do is to set the "shuffle_kids" entry in the data file to "true". T
 lists of boys and girls before building the model. Hence, different runs of the model will most likely result in
 different plans.
 
-In `main.py` a simple exmple showing how to use the code is implemented. A data example is provided in the file `exampleData.json` and this file is read using the function implemented in `readAndWriteJson.py`.
+In `main.py` a simple exmple showing how to use the code is implemented. A data example is provided in the file `exampleData.json` and this file is read using functionality from the `json`library.
 
 The format of the data file is as follows
 
