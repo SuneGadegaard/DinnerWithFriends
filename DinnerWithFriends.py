@@ -24,9 +24,9 @@
 # different plans.
 
 from ortools.sat.python import cp_model
-import readAndWriteJson as rwJson
+import json as js
 from math import ceil
-import random
+from random import shuffle
 
 
 class DinnerWithFriendsSolver:
@@ -57,13 +57,14 @@ class DinnerWithFriendsSolver:
 
     def readData(self, filename: str):
         # Read the data from the Json file
-        classData = rwJson.readJsonFileToDictionary(filename)
+        with open(filename) as f:
+            classData = js.load(f)
         # Copy data to class members
         self.Girls = classData['Girls']
         self.Boys = classData['Boys']
         if classData['shuffle_kids']:
-            random.shuffle(self.Girls)
-            random.shuffle(self.Boys)
+            shuffle(self.Girls)
+            shuffle(self.Boys)
         self.Kids = self.Girls + self.Boys
         self.numKids = len(self.Kids)
         self.minNumGuests = classData['minNumGuests']
