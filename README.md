@@ -214,27 +214,27 @@ The full linear integer programming model is then described as follows
 
 $$
 \begin{align}
-  \max		&\ \sum_{ (i,j) \in \Pi } \tilde{y}  _{ij}\\
-  \text{s.t.:}	&\ \sum _{g \in K} x_i^{ge} = 1,&& \forall i\in P, e\in E \\
-  		&\ \sum_{i \in P} x_i^{ge} \leq uz_{ge}, &&\forall g\in K, e\in E\\
-  		&\ \sum_{i \in P} x_i^{ge} \geq uz_{ge}, &&\forall g\in K, e\in E\\
-		&\ \sum_{i \in G} x_i^{ge} \geq 2x_j^{ge},	&& \forall j\in G, e\in E, g\in K\\
-		&\ \sum_{i \in B} x_i^{ge} \geq 2x_j^{ge},	&& \forall j\in B, e\in E, g\in K\\
-		&\ x_{ij}^{ge} \leq x_i^{ge},	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
-		&\ x_{ij}^{ge} \leq x_j^{ge},	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
-		&\ x_{ij}^{ge} \geq x_i^{ge}+x_j^{ge}-1,	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
-		&\ y_{ij}^e=\sum_{g \in K} x_{ij}^{ge},&&\forall (i,j)\in \Pi, e\in E\\
-		&\ \tilde{y}_{ij}\leq \sum _{e \in E} y _{ij}^e , && \forall (i,j) \in \Pi\\
-		&\ y_{ij}^e + y_{ij}^{e+1} \leq 1, &&\forall (i,j)\in \Pi, e\in E: e\neq \vert E\vert \\
-		&\ \sum_{e\in E} \beta_i^e \geq 1, && \forall i\in P\\
-		&\ \sum_{i \in P} \beta_i^e = \sum_{g\in K} z_{ge}, && \forall e\in E\\
-		&\ \beta_i^e + \beta_j^e \leq 2 - y_{ij}^e,&& \forall (i,j)\in \Pi, e\in E\\
-		&\ \beta_i^e + \beta_i^{e+1}\leq 1, && \forall i \in P, e\in E\\
-		& \alpha_{ij}^e \leq \beta_i^e, &&\forall i,j \in P, e\in E,\\
-		&\ \alpha_{ij}^e \leq y_{ij}^e, && \forall i,j\in P, e\in E\\
-		&\ \alpha{ij}^e \geq y_{ij}^e + \beta_i^e - 1, && \forall i,j\in P, e\in E\\
-		&\ \sum_{e \in E} \alpha_{ij}^e \leq 1, &&\forall i,j\in P\\
-		&\ \text{all variables are binary}
+  \max		&\sum_{ (i,j) \in \Pi } \tilde{y}  _{ij}\\
+  \text{s.t.:}	&\sum _{g \in K} x_i^{ge} = 1,&& \forall i\in P, e\in E \\
+  		&\sum_{i \in P} x_i^{ge} \leq uz_{ge}, &&\forall g\in K, e\in E\\
+  		&\sum_{i \in P} x_i^{ge} \geq uz_{ge}, &&\forall g\in K, e\in E\\
+		&\sum_{i \in G} x_i^{ge} \geq 2x_j^{ge},	&& \forall j\in G, e\in E, g\in K\\
+		&\sum_{i \in B} x_i^{ge} \geq 2x_j^{ge},	&& \forall j\in B, e\in E, g\in K\\
+		&x_{ij}^{ge} \leq x_i^{ge},	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
+		&x_{ij}^{ge} \leq x_j^{ge},	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
+		&x_{ij}^{ge} \geq x_i^{ge}+x_j^{ge}-1,	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
+		&y_{ij}^e=\sum_{g \in K} x_{ij}^{ge},&&\forall (i,j)\in \Pi, e\in E\\
+		&\tilde{y}_{ij}\leq \sum _{e \in E} y _{ij}^e , && \forall (i,j) \in \Pi\\
+		&y_{ij}^e + y_{ij}^{e+1} \leq 1, &&\forall (i,j)\in \Pi, e\in E: e\neq \vert E\vert \\
+		&\sum_{e\in E} \beta_i^e \geq 1, && \forall i\in P\\
+		&\sum_{i \in P} \beta_i^e = \sum_{g\in K} z_{ge}, && \forall e\in E\\
+		&\beta_i^e + \beta_j^e \leq 2 - y_{ij}^e,&& \forall (i,j)\in \Pi, e\in E\\
+		&\beta_i^e + \beta_i^{e+1}\leq 1, && \forall i \in P, e\in E\\
+		&\alpha_{ij}^e \leq \beta_i^e, &&\forall i,j \in P, e\in E,\\
+		&\alpha_{ij}^e \leq y_{ij}^e, && \forall i,j\in P, e\in E\\
+		&\alpha{ij}^e \geq y_{ij}^e + \beta_i^e - 1, && \forall i,j\in P, e\in E\\
+		&\sum_{e \in E} \alpha_{ij}^e \leq 1, &&\forall i,j\in P\\
+		&\text{all variables are binary}
 \end{align}
 $$
 
