@@ -1,6 +1,6 @@
 # Dinner with friends 
 
-In Denmark a rather substantial amount of work and effort has gone into reducing bullying in the danish public schools (``Folkeskolen''). Many initiatives, which purposes are to strengthen the unity and solidarity in the individual classes, have been introduced - and this with remarkable results (see e.g. [this link at sdu.dk](https://www.sdu.dk/da/sif/ugens_tal/17_2019). 
+In Denmark a rather substantial amount of work and effort has gone into reducing bullying in the danish public schools (``Folkeskolen''). Many initiatives, which purposes are to strengthen the unity and solidarity in the individual classes, have been introduced - and this with remarkable results (see e.g. [this link at sdu.dk](https://www.sdu.dk/da/sif/ugens_tal/17_2019)). 
 	
 One of these initiatives is the so-called ``Spis med venner'' (Dinner with friends) initiative. The idea is that the kids in a class should visit each other for dinner in small groups of four to five kids. These visits to each other's homes should happen a number of times during a year ( for example three times in the fall and three times in the spring) and each time the groups are different such that the kids get to visit and dine with as many of their class mates as possible. The reasoning behind the initiative is that you don't bully those with whom you have dined. And furthermore, this is an effective way to strengthen the bonds between the kids, leading to a more stable social community in the class.
 	
