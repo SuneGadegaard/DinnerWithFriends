@@ -62,6 +62,7 @@ $$
   P =& G\cup B\\
   \Pi =& \text{List of all ordered pairs of kids}\\
   E =& \text{All events}\\
+  K =& \text{All possible groups}\\
   u =& \text{maximum number of kids in a group}\\
   l =& \text{minimum number of kids in a group}
 \\end{align}
@@ -87,3 +88,15 @@ $$
   \max \sum_{ (i,j) \in \Pi } y _{ij}
 \end{equation}
 $$
+
+### Constraints
+
+Here all constraints are formulated and described. First of all, the model should ensure that each kids $i\in P$ is in exactly one groupe at each event.
+This is ensured by the constraints
+
+$$
+\begin{equation}
+  \sum _{g \in K} x_i^{ge} == 1,\quad \forall i\in P, e\in E
+\end{equation}
+$$
+
