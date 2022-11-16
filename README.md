@@ -57,13 +57,13 @@ Here, a mathematical description of the model is given. First we define sets and
 
 $$
 \\begin{align}
-  G=&\text{List of names for the girls in the class}\\
-  B=&\text{List of names for the boys in the class}\\
-  P=& G\cup B\\
-  \Pi=& \text{List of all ordered pairs of kids}\\
-  E=& \text{All events}\\
-  u=& \text{maximum number of kids in a group}\\
-  l=& \text{minimum number of kids in a group}
+  G =& \text{List of names for the girls in the class}\\
+  B =& \text{List of names for the boys in the class}\\
+  P =& G\cup B\\
+  \Pi =& \text{List of all ordered pairs of kids}\\
+  E =& \text{All events}\\
+  u =& \text{maximum number of kids in a group}\\
+  l =& \text{minimum number of kids in a group}
 \\end{align}
 
 ### Variables
