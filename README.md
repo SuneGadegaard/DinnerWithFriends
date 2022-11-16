@@ -71,11 +71,11 @@ $$
 $$
 \\begin{align}
   x_i^{ge} &=\begin{cases}1&\text{if kid $i$ is in group $g$ at event $e$}\\\ 0,&\text{otherwise} \end{cases}\\
-  \tilde{x}_{ij}^{ge} &=\begin{cases}1&\text{if kids $i$ and $j$ are in group $g$ at event $e$}\\\ 0,&\text{otherwise} \end{cases}\\
-  {y}_{ij}^{e} &=\begin{cases}1&\text{if kids $i$ and $j$ are in the same group at event $e$}\\\ 0,&\text{otherwise} \end{cases}\\
-  \tilde{y}_{ij} &=\begin{cases}1&\text{if kids $i$ and $j$ meet each other at least once}\\\ 0,&\text{otherwise} \end{cases}\\
-  z_{ge} &=\begin{cases}1&\text{if group $g$ is used at event $e$}\\\ 0,&\text{otherwise} \end{cases}\\
-  \alpha_{ij}^e&=\begin{cases}1&\text{if kid $j$ visits kid $i$'s home at event $e$}\\\ 0,&\text{otherwise} \end{cases}
+  \tilde{x} _{ij}^{ge} &=\begin{cases}1&\text{if kids $i$ and $j$ are in group $g$ at event $e$}\\\ 0,&\text{otherwise} \end{cases}\\
+  {y} _{ij}^{e} &=\begin{cases}1&\text{if kids $i$ and $j$ are in the same group at event $e$}\\\ 0,&\text{otherwise} \end{cases}\\
+  \tilde{y} _{ij} &=\begin{cases}1&\text{if kids $i$ and $j$ meet each other at least once}\\\ 0,&\text{otherwise} \end{cases}\\
+  z _{ge} &=\begin{cases}1&\text{if group $g$ is used at event $e$}\\\ 0,&\text{otherwise} \end{cases}\\
+  \alpha _{ij}^e&=\begin{cases}1&\text{if kid $j$ visits kid $i$'s home at event $e$}\\\ 0,&\text{otherwise} \end{cases}
 \end{align}
 $$
 $$
