@@ -1,0 +1,9 @@
+{
+    "Girls": ["Selma G", "Selma H", "Sofie", "Ronja", "Emma", "Nicoline", "Mathilde", "Dicte", "Hanna" ],
+    "Boys": ["Bjørn", "Christian", "Marius S", "Marius R", "Ebbe", "Elias", "Bertram", "Bastian", "Luca", "Mads", "Mikkel", "Laurits", "Storm"],
+    "numOfEvents": 6,
+    "minNumGuests": 4,
+    "maxNumGuests": 5,
+    "timeLimitInSeconds" : 120,
+    "shuffle_kids" : false
+}
