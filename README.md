@@ -95,9 +95,9 @@ Here all constraints are formulated and described. First of all, the model shoul
 This is ensured by the constraints
 
 $$
-\begin{equation}
-  \sum _{g \in K} x_i^{ge} = 1,\quad \forall i\in P, e\in E
-\end{equation}
+\begin{align}
+  &\sum _{g \in K} x_i^{ge} = 1,&& \forall i\in P, e\in E
+\end{align}
 $$
 
 Next, we ensure that at most $u$ and at least $l$ kids are in each utilized group:
@@ -126,6 +126,23 @@ $$
 \begin{align}
   &x_{ij}^{ge} \leq x_i^{ge},	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
   &x_{ij}^{ge} \leq x_j^{ge},	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
-  &x_{ij}^{ge} \geq x_i^{ge}+x_i^{ge}-1,	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
+  &x_{ij}^{ge} \geq x_i^{ge}+x_j^{ge}-1,	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
+\end{align}
+$$
+
+The next step is to link the $x_{ij}^{ge}$-variables to the $y_{ij}^e$-variables. Note here, that kids $i$ and $j$ meet each other at event $e$ 
+$(y_{ij}^e=1)$ if at least one $x_{ij}^{ge}$ equals one for the pair $(i,j)$ and the event $e$. Hence, we have
+
+$$
+\begin{align}
+  &y_{ij}^e\leq \sum_{g \in K} x_{ij}^{ge},&&\forall (i,j)\in \Pi, e\in E
+\end{align}
+$$
+
+These constraints inforce the logic that if there exists a group $g$ in which kids $i$ and $j$ meet each other at event $e$, then $y_{ij}^e$ is allowed to take a value of one. Given that the objective function prefers more meetings, it is not necessary to enfore the reverse implication. However, it can be done with constraints
+
+$$
+\begin{align}
+  &\vert K\vert y_{ij}^e\geq \sum_{g \in K} x_{ij}^{ge},&&\forall (i,j)\in \Pi, e\in E
 \end{align}
 $$
