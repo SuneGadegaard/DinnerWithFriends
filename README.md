@@ -215,7 +215,7 @@ The full linear integer programming model is then described as follows
 $$
 \begin{align}
   \max		&\sum_{ (i,j) \in \Pi } \tilde{y}  _ {ij}\\
-  \text{s.t.:}	&\sum _{g \in K} x_i^{ge} = 1,&& \forall i\in P, e\in E \\
+  \text{s.t.:}	&\sum _ {g \in K} x _ i^{ge} = 1,&& \forall i\in P, e\in E \\
   		&\sum _{i \in P} x_i^{ge} \leq uz_{ge}, &&\forall g\in K, e\in E\\
   		&\sum _{i \in P} x_i^{ge} \geq uz_{ge}, &&\forall g\in K, e\in E\\
 		&\sum _{i \in G} x_i^{ge} \geq 2x_j^{ge},	&& \forall j\in G, e\in E, g\in K\\
