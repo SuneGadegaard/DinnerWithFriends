@@ -232,8 +232,8 @@ $$
 		&\beta_i^e + \beta_i^{e+1}\leq 1, && \forall i \in P, e\in E\\
 		&\alpha_{ij}^e \leq \beta_i^e, &&\forall i,j \in P, e\in E,\\
 		&\alpha _{ij}^e \leq y _{ij}^e, && \forall i,j\in P, e\in E\\
-		&\alpha _{ij}^e\geq y _{ij} ^e + \beta_i^e - 1, && \forall i,j\in P, e\in E\\
-		&\sum_{e \in E} \alpha _{ij}^e \leq 1, &&\forall i,j\in P\\
+		&\alpha _ {ij} ^ e \geq y _ {ij} ^ e + \beta_i^e - 1, && \forall i,j\in P, e\in E\\
+		&\sum _ {e \in E} \alpha _ {ij} ^ e \leq 1, &&\forall i,j\in P\\
 		&\text{all variables are binary}
 \end{align}
 $$
