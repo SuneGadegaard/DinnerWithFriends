@@ -216,10 +216,10 @@ $$
 \begin{align}
   \max		&\sum_{ (i,j) \in \Pi } \tilde{y}  _ {ij}\\
   \text{s.t.:}	&\sum _ {g \in K} x _ i^{ge} = 1,&& \forall i\in P, e\in E \\
-  		&\sum _{i \in P} x_i^{ge} \leq uz_{ge}, &&\forall g\in K, e\in E\\
-  		&\sum _{i \in P} x_i^{ge} \geq uz_{ge}, &&\forall g\in K, e\in E\\
-		&\sum _{i \in G} x_i^{ge} \geq 2x_j^{ge},	&& \forall j\in G, e\in E, g\in K\\
-		&\sum _{i \in B} x_i^{ge} \geq 2x_j^{ge},	&& \forall j\in B, e\in E, g\in K\\
+  		&\sum _ {i \in P} x _ i^{ge} \leq uz_{ge}, &&\forall g\in K, e\in E\\
+  		&\sum _ {i \in P} x _ i^{ge} \geq uz_{ge}, &&\forall g\in K, e\in E\\
+		&\sum _ {i \in G} x _ i^{ge} \geq 2x_j^{ge},	&& \forall j\in G, e\in E, g\in K\\
+		&\sum _ {i \in B} x _ i^{ge} \geq 2x_j^{ge},	&& \forall j\in B, e\in E, g\in K\\
 		&x_{ij}^{ge} \leq x_i^{ge},	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
 		&x_{ij}^{ge} \leq x_j^{ge},	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
 		&x_{ij}^{ge} \geq x_i^{ge}+x_j^{ge}-1,	&& \forall (i,j)\in \Pi, g\in K, e\in E\\
