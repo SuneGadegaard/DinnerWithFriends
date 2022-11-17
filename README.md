@@ -233,7 +233,7 @@ $$
 		&\alpha_{ij}^e \leq \beta_i^e, &&\forall i,j \in P, e\in E,\\
 		&\alpha_{ij}^e \leq y_{ij}^e, && \forall i,j\in P, e\in E\\
 		&\alpha{ij}^e \geq y_{ij}^e + \beta_i^e - 1, && \forall i,j\in P, e\in E\\
-		&\sum_{e \in E} \alpha_{ij}^e \leq 1, &&\forall i,j\in P\\
+		&\sum_{e \in E} \alpha _{ij}^e \leq 1, &&\forall i,j\in P\\
 		&\text{all variables are binary}
 \end{align}
 $$
