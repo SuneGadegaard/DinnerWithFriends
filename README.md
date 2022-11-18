@@ -167,11 +167,13 @@ $$
 $$
 
 As there should be as many hosts at event $e$ as there are groups in use, we require that
+
 $$
 \begin{align}
   &\sum_{i \in P} \beta_i^e = \sum_{g\in K} z_{ge}, && \forall e\in E
 \end{align}
 $$
+
 This is however not enough to enforce the logic, as there my now be two hosts in the same group and no host in another group, which is rather meaningless. Hence, we enforce that if kids $i$ and $j$ are in the same group, they cannot both be hosts
 
 $$
