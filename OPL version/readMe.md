@@ -6,3 +6,9 @@ The code can be run through CPLEX Optimization studio or through the command lin
 ```
 oplrun DinnerWithFriendsOPL.mod <name of datafile>.dat
 ```
+
+This means that the example instance in this folder can be solved using the command line running the following command
+
+```
+oplrun DinnerWithFriendsOPL.mod dataExample.dat
+```
