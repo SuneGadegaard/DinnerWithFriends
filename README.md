@@ -196,9 +196,9 @@ The last part of the model concerns the definition of the $\alpha_{ij}^e$-variab
 
 $$
 \begin{align}
-  & \alpha_{ij}^e \leq \beta_i^e, &&\forall i,j \in P, e\in E,\\
-  & \alpha_{ij}^e \leq y_{ij}^e, && \forall i,j\in P, e\in E\\
-  & \alpha{ij}^e \geq y_{ij}^e + \beta_i^e - 1, && \forall i,j\in P, e\in E\\
+  & \alpha _ {ij} ^ e \leq \beta_i^e, &&\forall i,j \in P, e\in E,\\
+  & \alpha _ {ij} ^ e \leq y_{ij}^e, && \forall i,j\in P, e\in E\\
+  & \alpha _ {ij} ^ e \geq y_{ij}^e + \beta_i^e - 1, && \forall i,j\in P, e\in E\\
 \end{align}
 $$
 
