@@ -49,6 +49,8 @@ The format of the data file is as follows
 "shuffle_kids" : boolean spcifying whether the lists of boys and girls should be shuffled before building the model
 ```
 
+The code uses [orTools](https://developers.google.com/optimization) for modelling and solving the problem. A guide for installing orTools is provided [here](https://developers.google.com/optimization/install).
+
 ## Mathematical model
 
 Here, a mathematical description of the model is given. First we define sets and parameters, next the variables, the objective funciton, and finally we provide the consrtaints. This section is concluded with a full description of the model.
