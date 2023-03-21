@@ -2,13 +2,13 @@
 
 In Denmark a rather substantial amount of work and effort has gone into reducing bullying in the danish public schools ("Folkeskolen"). Many initiatives, which purposes are to strengthen the unity and solidarity in the individual classes, have been introduced - and this with remarkable results (see e.g. [this link at sdu.dk](https://www.sdu.dk/da/sif/ugens_tal/17_2019)). 
 	
-One of these initiatives is the so-called ``Spis med venner'' (Dinner with friends) initiative. The idea is that the kids in a class should visit each other for dinner in small groups of four to five kids. These visits to each other's homes should happen a number of times during a year ( for example three times in the fall and three times in the spring) and each time the groups are different such that the kids get to visit and dine with as many of their class mates as possible. The reasoning behind the initiative is that you don't bully those with whom you have dined. And furthermore, this is an effective way to strengthen the bonds between the kids, leading to a more stable social community in the class.
+One of these initiatives is the so-called ``Spis med venner'' (Dinner with friends) initiative. The idea is that the kids in a class should visit each other for dinner in small groups of four to five kids. These visits to each other's homes should happen a number of times during a year (for example three times in the fall and three times in the spring) and each time the groups are different such that the kids get to visit and dine with as many of their class mates as possible. The reasoning behind the initiative is that you don't bully those with whom you have dined. And furthermore, this is an effective way to strengthen the bonds between the kids, leading to a more stable social community in the class.
 	
 However, for the parent untrained in combinatorial optimization and mathematical modeling, producing a plan for the visits, which makes the groups as diverse as possible each time, ensures that the same two kids do not go to the same dinner arrangement several times, that the hosts are not the same all the time and so forth is difficult! Really, difficult! Thus, this program is made to help the parents in charge of making the plans.
 	
 ## The program and the logic behind it
 
-This file `DinnerWithFriends.py` implements a group forming problem referred to as "Dinner with friends". 
+The file `DinnerWithFriends.py` implements a group forming problem referred to as "Dinner with friends". 
 
 The concept works as follows:
 A specific number of times a year (these are referred to as "events"), smaller groups are formed in the class.
@@ -23,7 +23,7 @@ The implemented model is based on the following rules
 2. Each kid should be in a group at each event
 3. Each group should consist of at least `minNumGuests` and at most `maxNumOfGuests`
 4. If a girl/boy is in a group, then at least 2 girls/boys must be placed in that group
-5. If two kids are in the same group at an event, they cannot be the same group at the next event
+5. If two kids are in the same group at an event, they cannot be in the same group at the next event
 6. Each kid must be the host at least once during the events
 7. A kid cannot be the host two events in a row
 8. A kid "i" can vist another kid "j"'s home at most once during the planning horizon
@@ -35,17 +35,17 @@ What you can do is to set the "shuffle_kids" entry in the data file to "true". T
 lists of boys and girls before building the model. Hence, different runs of the model will most likely result in
 different plans.
 
-In `main.py` a simple exmple showing how to use the code is implemented. A data example is provided in the file `exampleData.json` and this file is read using functionality from the `json`library.
+In `main.py` a simple exmple showing how to use the code is implemented. A data example is provided in the file `exampleData.json` and this file is read using functionality from the `json` library.
 
 The format of the data file is as follows
 
 ```
-"Girls": [List of names for the girls in the class],
-"Boys": [List of names for the boys in the class],
+"Girls": [List of names (as strings) for the girls in the class],
+"Boys": [List of names (as strings) for the boys in the class],
 "numOfEvents": integer specifying the number of events that should be planned,
 "minNumGuests": integer specifying the minimum number of kids in each group,
 "maxNumGuests": integer specifying the maximum number of kids in each group,
-"timeLimitInSeconds" : float spefifying the number of seconds which should be allocated to the solution,
+"timeLimitInSeconds" : float spefifying the number of seconds which should be allocated to the solution process - higher number leads to better solution,
 "shuffle_kids" : boolean spcifying whether the lists of boys and girls should be shuffled before building the model
 ```
 
@@ -142,7 +142,7 @@ $$
 \end{align}
 $$
 
-The equality is given by the fact that $i$ and $j$ cannot meet each other in *more* than one group. Hence the right hand side sum is either equal to $ or 0.
+The equality is given by the fact that $i$ and $j$ cannot meet each other in *more* than one group. Hence the right hand side sum is either equal to 1 or 0.
 
 Next, we enforce final definition of the $\tilde{y} _{ij}$ variables. Since $\tilde{y} _{ij}$ should only be allowed to take the value of one if there exists an event $e$ where kids $i$ and $j$ meet, we have the relation
 
@@ -152,7 +152,7 @@ $$
 \end{align}
 $$
 
-THe next part of the model, focuses on the practical rules for a feasible solution. First, the rule that kids $i$ and $j$ cannot meet each other at two consecutive events is modelled as 
+The next part of the model, focuses on the practical rules for a feasible solution. First, the rule that kids $i$ and $j$ cannot meet each other at two consecutive events is modelled as 
 
 $$
 \begin{align}
@@ -176,7 +176,7 @@ $$
 \end{align}
 $$
 
-This is however not enough to enforce the logic, as there my now be two hosts in the same group and no host in another group, which is rather meaningless. Hence, we enforce that if kids $i$ and $j$ are in the same group, they cannot both be hosts
+This is however not enough to enforce the logic, as there may now be two hosts in the same group and no host in another group, which is rather meaningless. Hence, we enforce that if kids $i$ and $j$ are in the same group, they cannot both be hosts
 
 $$
 \begin{align}
