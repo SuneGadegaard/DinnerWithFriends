@@ -181,8 +181,9 @@ class DinnerWithFriendsSolver:
                 self.model.Add(self.isHost[i, e] + self.isHost[j, e] <= 2 - self.meetsAtE[i, j, e])
         # Ensure no one is host in succeeding events:
         for e in self.Events:
-            if e > 0:
-                self.model.Add(self.isHost[i, e - 1] + self.isHost[i, e] <= 1)
+            for i in self.Kids:
+                if e > 0:
+                    self.model.Add(self.isHost[i, e - 1] + self.isHost[i, e] <= 1)
         # Linearize the relation visits[i, j, e] = isHost[i, e] * meetsAtE[i, j, e] as the standard
         # visits[i, j, e] <= isHost[i, e], visits[i, j, e] <= meetsAtE[i, j, e], and
         # visits[i, j, e] >= isHost[i, e] + meetsAtE[i, j, e] - 1
