@@ -204,7 +204,7 @@ $$
 \end{align}
 $$
 
-Finally, it should be ensured that pupil $j$ visits pupil $i$ at least once:
+Finally, it should be ensured that pupil $j$ visits pupil $i$ at most once:
 
 $$
 \begin{align}
